@@ -1,0 +1,74 @@
+.title-block {
+  margin-top: 6rem;
+  display: flex;
+  align-items: center;
+}
+
+.title-block button {
+  display: block;
+  border: 2px solid #b9b9b9;
+  padding: 8px;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title-block button .filter-arrow {
+  display: block;
+}
+
+.title-block h2 {
+  font-size: 3rem;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.card-project {
+  border: 2px solid #b9b9b9;
+  border-radius: 4px;
+}
+
+.card-project .preview-content {
+  padding: 0.5rem;
+}
+
+.card-project img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-project h5 {
+  font-size: 1.2rem;
+}
+
+.card-project .data-turma {
+  color: #999999;
+}
+
+.card-project .project-tag {
+  border: 1px solid #b9b9b9;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.card-project .tags-container {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tags-container a {
+  color: black;
+}
+
+.tags-container > * {
+  display: block;
+}

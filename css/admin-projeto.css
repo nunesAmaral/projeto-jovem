@@ -1,0 +1,284 @@
+body {
+  background-image: none;
+  padding: 0 24px;
+  font-family: 'Poppins';
+}
+
+header .logo {
+  font-size: 1.5rem;
+}
+
+nav {
+  background-color: #111312;
+  padding: 24px;
+  border-radius: 32px;
+  margin-top: 32px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+nav ul a {
+  color: white;
+  display: block;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+}
+.card-container {
+  margin-top: 32px;
+}
+
+.container .card {
+  width: 330px;
+  height: 160px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card.green {
+  background-color: #c3efd6;
+}
+
+.card.blue button {
+  background-color: #254e64;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: white;
+  max-width: fit-content;
+  display: flex;
+  gap: 8px;
+}
+
+.card.blue {
+  background-color: #cbe6f4;
+}
+
+.card .text {
+  opacity: 0.9;
+  max-width: 240px;
+}
+
+.card > * {
+  display: block;
+}
+
+.card .total-registred {
+  font-size: 48px;
+}
+
+h2 {
+  margin-top: 32px;
+}
+
+dialog h2 {
+  margin-top: 0;
+}
+
+.project-list-columns {
+  margin-top: 16px;
+  border-bottom: 2px solid rgba(77, 77, 77, 0.7);
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  font-weight: 500;
+  opacity: 0.9;
+  justify-items: center;
+}
+.project-list-columns > * {
+  display: block;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #b1b1b1;
+}
+
+.project-row .project-title {
+  font-weight: 500;
+  font-size: 16px;
+  max-width: 65%;
+}
+.published-date-container span {
+  font-weight: 500;
+  opacity: 0.9;
+}
+.project-row .project-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-row > * {
+  flex-grow: 1;
+}
+
+.project-row .project-preview {
+  justify-self: left;
+  display: flex;
+  gap: 16px;
+}
+
+.project-row .action-container {
+  justify-self: right;
+}
+
+.project-preview > * {
+  display: block;
+}
+
+.project-row .lab-container span {
+  padding: 8px;
+  border-radius: 24px;
+  font-size: 16px;
+}
+.lab-container .lab-humanas {
+  border: 2px solid #bb3a3a;
+  color: #bb3a3a;
+}
+
+.lab-container .lab-natureza {
+  border: 2px solid #62b461;
+  color: #62b461;
+}
+
+.lab-container .lab-matematica {
+  border: 2px solid #6c97d8;
+  color: #6c97d8;
+}
+
+.lab-container .lab-linguagem {
+  border: 2px solid #beb137;
+  color: #beb137;
+}
+
+.action-container button {
+  cursor: pointer;
+}
+
+dialog {
+  border-radius: 8px;
+  width: 590px;
+  margin: 0 auto;
+  top: 32px;
+  padding: 32px;
+}
+
+dialog form {
+  margin-top: 32px;
+}
+
+dialog form > * {
+  display: block;
+}
+
+dialog label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+dialog select {
+  border: 1px solid #505050;
+  border-radius: 4px;
+}
+
+dialog input,
+textarea {
+  border: 1px solid #505050;
+  border-radius: 4px;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+label[for='descricao'],
+label[for='imagens'] {
+  margin-top: 16px;
+}
+
+input[type='file'] {
+  border: 1px solid #505050;
+  padding: 0;
+}
+
+input {
+  font-family: 'Poppins', sans-serif;
+}
+
+select {
+  font-family: 'Poppins';
+  padding: 8px;
+  width: 100%;
+}
+
+input::-webkit-file-upload-button {
+  background-color: #404040;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 8px;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 8px;
+}
+
+textarea {
+  height: 132px;
+}
+
+textarea::placeholder,
+input::placeholder {
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn.primary {
+  background-color: #4192c0;
+  color: white;
+}
+
+.btn.seccondary {
+  background-color: #e4e6e7;
+  color: #454545;
+}
+
+.flex {
+  display: flex;
+  margin-top: none;
+}
+
+.flex.select-container {
+  gap: 8px;
+  margin-top: 16px;
+}
+
+dialog .btn-container.flex {
+  gap: 8px;
+  margin-top: 24px;
+}

@@ -1,0 +1,79 @@
+h2 {
+  font-size: 3rem;
+  max-width: 60%;
+  text-transform: uppercase;
+  margin-top: 90px;
+  line-height: 1.1;
+}
+
+#container {
+  padding-bottom: 3rem;
+}
+
+.projeto-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.projeto-container .projeto-bubble {
+  margin-top: 108px;
+  margin-right: 2rem;
+}
+
+.info-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 6rem;
+  position: relative;
+}
+
+.info-container::before {
+  content: '';
+  width: 4rem;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #aaa;
+  display: block;
+  position: absolute;
+  left: -6rem;
+  bottom: 12px;
+}
+
+.postagens-info .data-postagem {
+  color: #3d3d3d;
+  margin-right: 2rem;
+}
+
+.postagens-info .lab-tag {
+  padding: 4px 8px;
+  background-color: #bed;
+  color: #165;
+  border: 2px solid #265;
+  border-radius: 1.5rem;
+}
+p {
+  max-width: 60%;
+}
+
+p:first-of-type {
+  margin-bottom: 1ren;
+}
+
+.btn-seccondary {
+  background-color: #de6632;
+  padding: 1rem 1.5rem;
+  border: 3px solid #5f3f32;
+  color: #2c140a;
+  font-weight: bold;
+  font-size: 1.125rem;
+  box-shadow: 4px 4px 0px 0px #111;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-seccondary:hover {
+  box-shadow: none;
+  position: relative;
+  left: 4px;
+  bottom: -4px;
+}
