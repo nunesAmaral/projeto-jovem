@@ -1,4 +1,4 @@
-<dialog class="new-project">
+<dialog class="new-project" id="new-project">
   <h2>Criar projeto</h2>
   <form enctype="multipart/form-data" action="/admin/projeto/save" method="post">
     <label for="titulo">Título:</label>
@@ -32,7 +32,7 @@
 </dialog>
 
 <script>
-  const newProjectModal = document.querySelector('dialog.new-project');
+  const newProjectModal = document.querySelector('dialog#new-project');
 
   function closeModal() {
     event.preventDefault();

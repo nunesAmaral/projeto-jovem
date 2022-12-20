@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/admin-projeto.css">
+
 </head>
 
 <body>
@@ -81,7 +82,7 @@
 
         <?php foreach ($imgModel->rows as $img) {
           if ($img->projeto_id == $row->id) { ?>
-            <img class="project-img" src="<?= "/imgs/$row->id/$img->nome_img.png" ?>">
+            <img class="project-img" src="<?= "/imgs/$row->id/$img->nome_img.$img->extensao" ?>">
         <?php break;
           }
         } ?>
@@ -96,18 +97,13 @@
       </div>
 
       <div class="action-container">
-        <a href="/admin/projeto?id=<?= $row->id ?>"><img src="/assets/edit-btn.svg" alt=""></a>
-        <button><img src="/assets/delete-btn.svg" alt=""></button>
+        <a onclick="editProjectModal.showModal()" href="/admin/projeto?id=<?= $row->id ?>"><img src="/assets/edit-btn.svg" alt=""></a>
+        <a href="/admin/projeto/delete?id=<?= $row->id ?>" onclick="return confirm('Tem certeza que deseja apagar o projeto?')"><img src="/assets/delete-btn.svg" alt=""></a>
       </div>
     </div>
   <?php } ?>
   <script>
-    const newProjectModal = document.querySelector('dialog.new-project');
 
-    function closeModal() {
-      event.preventDefault();
-      newProjectModal.close();
-    }
   </script>
 </body>
 

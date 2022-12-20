@@ -5,12 +5,29 @@ class ProjetoModel extends Model
 {
   public $id, $titulo, $descricao, $data_projeto, $laboratorio;
   public $rows;
+  public $row;
 
   public function save()
   {
     include 'DAO/projetoDAO.php';
     $projetoDAO = new ProjetoDAO($this->conn);
     return $projetoDAO->insert($this);
+  }
+
+  public function update()
+  {
+    include 'DAO/projetoDAO.php';
+    $projetoDAO = new ProjetoDAO($this->conn);
+
+    return $projetoDAO->update($this);
+  }
+
+  public function delete($id)
+  {
+    include 'DAO/projetoDAO.php';
+    $dao = new ProjetoDAO($this->conn);
+
+    $dao->delete($id);
   }
 
   public function getAllRows()
@@ -55,5 +72,12 @@ class ProjetoModel extends Model
   public function getTotalRegistred()
   {
     return count($this->rows);
+  }
+  public function selectById(int $id)
+  {
+    include_once 'DAO/projetoDAO.php';
+    $dao = new ProjetoDAO($this->conn);
+
+    $this->row = $dao->selectById($id);
   }
 }

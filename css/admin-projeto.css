@@ -141,6 +141,8 @@ dialog h2 {
 
 .project-row .action-container {
   justify-self: right;
+  display: flex;
+  gap: 8px;
 }
 
 .project-preview > * {
@@ -172,7 +174,7 @@ dialog h2 {
   color: #beb137;
 }
 
-.action-container button {
+.action-container a {
   cursor: pointer;
 }
 
@@ -281,4 +283,67 @@ input::placeholder {
 dialog .btn-container.flex {
   gap: 8px;
   margin-top: 24px;
+}
+
+.flex.imgs-container {
+  flex-wrap: wrap;
+  width: calc(590px - 64px);
+  gap: 46px 16px;
+}
+
+.flex.imgs-container input {
+  display: none;
+}
+
+.flex.imgs-container label img {
+  object-fit: cover;
+  display: block;
+  border-radius: 4px 4px 0px 0px;
+  width: 100px;
+  height: 100px;
+}
+
+.flex.imgs-container label {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.imgs-container input:checked + label::after {
+  content: 'Removido';
+  color: rgba(47, 47, 47, 0.9);
+  width: 100px;
+  height: 30px;
+  background-color: rgba(208, 132, 62, 0.35);
+  display: block;
+  position: relative;
+  border-radius: 0px 0px 4px 4px;
+  padding: 4px 0;
+  z-index: 5;
+}
+
+.imgs-container input + label::after {
+  content: 'Remover';
+  color: rgba(47, 47, 47, 0.9);
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  background-color: rgba(55, 201, 118, 0.3);
+  display: block;
+  position: relative;
+  border-radius: 0px 0px 4px 4px;
+  padding: 4px 0;
+  z-index: 5;
+}
+
+.img-container-title {
+  display: block;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+#edit-project .btn-container {
+  margin-top: 64px;
 }

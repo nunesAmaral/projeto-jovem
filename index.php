@@ -30,6 +30,14 @@ switch ($url) {
     ProjetoController::saveForm();
     break;
 
+  case '/admin/projeto/update':
+    ProjetoController::updateForm();
+    break;
+
+  case '/admin/projeto/delete':
+    ProjetoController::deleteProjeto();
+    break;
+
   case '/':
     include 'view/pages/home.php';
     break;
