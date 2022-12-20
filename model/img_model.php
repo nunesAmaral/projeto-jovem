@@ -27,7 +27,7 @@ class ImgModel extends Model
         $new_file_name = uniqid();
         $extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
-        if ($extension != "jpg" && $extension != "png") {
+        if ($extension != "jpg" && $extension != "png" && $extension != "jpeg") {
           echo $extension, $file_name;
           die("Tipo de arquivo inválido");
         }
@@ -51,7 +51,7 @@ class ImgModel extends Model
     $dao->insert($this);
   }
 
-  public function delete($imgs_dados)
+  public function delete(?array $imgs_dados)
   {
     include_once 'DAO/imgDAO.php';
     $dao = new ImgDAO($this->conn);
@@ -65,14 +65,6 @@ class ImgModel extends Model
     }
   }
 
-  // public function deleteByReference($projeto_id)
-  // {
-  //   include_once 'DAO/imgDAO.php';
-  //   $dao = new ImgDAO($this->conn);
-  //   $this->deleteFilesByReference($projeto_id);
-
-  //   $dao->deleteByReference($projeto_id);
-  // }
 
   public function deleteFilesByReference(int $projeto_id)
   {

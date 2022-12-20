@@ -46,14 +46,4 @@ class ImgDAO
 
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
-
-  public function deleteByReference(int $id)
-  {
-    include_once 'model/img_model.php';
-
-    $sql = "DELETE FROM imagens WHERE projeto_id = ?";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bindValue(1, $id);
-    $stmt->execute();
-  }
 }

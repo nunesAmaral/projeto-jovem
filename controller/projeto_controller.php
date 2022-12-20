@@ -69,11 +69,11 @@ class ProjetoController
     $model->id = (int) $_GET['id'];
     $model->update();
 
-    if (isset($_POST['imagens'])) ProjetoController::deleteImgs($_POST['imagens'], $model->id);
+    ProjetoController::deleteImgs($_POST['imagens'], $model->id);
     ProjetoController::saveImgs($model->id);
   }
 
-  public static function deleteImgs($img_dados, $projeto_id)
+  public static function deleteImgs(?array $img_dados, int $projeto_id)
   {
     include_once 'model/img_model.php';
     $model = new ImgModel();
