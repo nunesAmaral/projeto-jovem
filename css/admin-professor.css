@@ -1,0 +1,7 @@
+.project-list-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.project-row {
+  grid-template-columns: repeat(3, 1fr);
+}

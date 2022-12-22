@@ -1,0 +1,98 @@
+textarea#descricao {
+  height: 96px;
+}
+
+input#img-perfil {
+  display: none;
+}
+
+label[for='img-perfil'] {
+  border: 1px solid black;
+  border-radius: 4px 4px 0 0;
+  width: 120px;
+  height: 120px;
+  display: block;
+  box-sizing: border-box;
+}
+
+label[for='img-perfil']::after {
+  content: 'Buscar foto';
+  padding: 0 8px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #b9e1ca;
+  color: #242d1a;
+  border-radius: 0 0 4px 4px;
+  width: 120px;
+  display: block;
+  position: relative;
+  left: -1px;
+}
+
+label[for='img-perfil'] img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.new-professor-form {
+  padding: 24px 0;
+}
+
+.add-formacoes,
+.formacao-inputs-container button {
+  padding: 8px 16px;
+  background-color: #222;
+  color: white;
+  border-radius: 4px;
+  display: block;
+  font-family: 'poppins', sans-serif;
+}
+
+.add-formacoes {
+  display: flex;
+  gap: 8px;
+  padding: 8px 8px;
+}
+
+.flex.new-professor-form {
+  gap: 24px;
+}
+
+.select-btn-container {
+  gap: 16px;
+}
+
+.formacao-inputs-container {
+  margin-top: 16px;
+}
+
+.formacao-inputs-container button {
+  border-radius: 0 4px 4px 0px;
+}
+
+.flex {
+  margin-top: inherit;
+}
+
+.formacao-input {
+  border-radius: 4px 0 0px 4px;
+  padding-top: 8px;
+}
+
+.input-controller label {
+  display: block;
+}
+
+.form-column-2 {
+  width: 100%;
+}
+
+.btn-formacao-controller,
+.input-controller {
+  flex: 1;
+}
+
+dialog label {
+  display: block;
+}

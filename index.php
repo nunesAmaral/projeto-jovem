@@ -3,6 +3,7 @@
 // Index controlará as rotas da aplicação e renderizará as views instanciadas no controller.
 include 'controller/admin_controller.php';
 include 'controller/projeto_controller.php';
+include 'controller/professor_controller.php';
 
 // A var $url recebe da função "parse_url", o URI requerido junto ao caminho da URL, formando 
 // o caminho completo requerido pelo usuário. O uso de parâmetros na URL não é afetado pelo roteamento.
@@ -37,6 +38,15 @@ switch ($url) {
   case '/admin/projeto/delete':
     ProjetoController::deleteProjeto();
     break;
+
+  case '/admin/professores':
+    ProfessorController::adminProfessor();
+    break;
+
+  case '/admin/professores/save':
+    ProfessorController::saveForm();
+    break;
+
 
   case '/':
     include 'view/pages/home.php';

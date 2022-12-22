@@ -28,7 +28,7 @@
 
       <?php foreach ($imgs as $img) { ?>
         <input type="checkbox" name="imagens[]" id="<?= $img->id ?>" value="<?= "$img->id $img->projeto_id $img->nome_img $img->extensao" ?>">
-        <label for="<?= $img->id ?>"><img class="edit-img" src="<?= "/imgs/$img->projeto_id/$img->nome_img.$img->extensao" ?>"></label>
+        <label for="<?= $img->id ?>"><img class="edit-img" src="<?= "/imgs/projetos/$img->projeto_id/$img->nome_img.$img->extensao" ?>"></label>
       <?php } ?>
 
     </div>

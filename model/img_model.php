@@ -11,12 +11,10 @@ class ImgModel extends Model
   public function saveFile($projeto_id)
   {
     if (isset($this->imagens) && count($this->imagens) > 0 && strlen($this->imagens['name'][0]) > 0) {
-      // echo '<pre>';
-      // var_dump($this->imagens);
-      // echo '</pre>';
+
       $this->projeto_id = $projeto_id;
 
-      $path = "imgs/$this->projeto_id/";
+      $path = "imgs/projetos/$this->projeto_id/";
 
       if (!file_exists($path)) {
         mkdir($path, 0755);
@@ -28,14 +26,13 @@ class ImgModel extends Model
         $extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
         if ($extension != "jpg" && $extension != "png" && $extension != "jpeg") {
-          echo $extension, $file_name;
           die("Tipo de arquivo inválido");
         }
 
         $this->nome_imagem = $new_file_name;
         $this->extensao = $extension;
 
-        $destination = "imgs/$this->projeto_id/$new_file_name.$extension";
+        $destination = "imgs/projetos/$this->projeto_id/$new_file_name.$extension";
         if (move_uploaded_file($this->imagens['tmp_name'][$i], $destination)) {
           $this->save();
         };
@@ -68,12 +65,12 @@ class ImgModel extends Model
 
   public function deleteFilesByReference(int $projeto_id)
   {
-    $files = scandir("imgs/$projeto_id");
+    $files = scandir("imgs/projetos/$projeto_id");
     $files = array_diff($files, ['.', '..']);
     foreach ($files as $file) {
       unlink("imgs/$projeto_id/$file");
     }
-    $directory = "imgs/$projeto_id";
+    $directory = "imgs/projetos/$projeto_id";
 
     rmdir($directory);
   }
@@ -84,7 +81,7 @@ class ImgModel extends Model
       $array_dados = explode(' ', $img_dados);
       [, $id_projeto, $nome_img, $extensao] = $array_dados;
 
-      unlink("imgs/$id_projeto/$nome_img.$extensao");
+      unlink("imgs/projetos/$id_projeto/$nome_img.$extensao");
     }
   }
 

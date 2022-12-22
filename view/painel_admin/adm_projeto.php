@@ -82,7 +82,7 @@
 
         <?php foreach ($imgModel->rows as $img) {
           if ($img->projeto_id == $row->id) { ?>
-            <img class="project-img" src="<?= "/imgs/$row->id/$img->nome_img.$img->extensao" ?>">
+            <img class="project-img" src="<?= "/imgs/projetos/$row->id/$img->nome_img.$img->extensao" ?>">
         <?php break;
           }
         } ?>
