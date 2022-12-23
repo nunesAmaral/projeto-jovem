@@ -15,8 +15,16 @@ class FormacadDAO
 
     $stmt->bindValue(1, $model->prof_id);
     $stmt->bindValue(2, $model->formacao);
-
-
     $stmt->execute();
+  }
+
+  public function selectByReference(int $prof_id)
+  {
+    $sql = "SELECT * FROM form_academica WHERE prof_id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(1, $prof_id);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 }

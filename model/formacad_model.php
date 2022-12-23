@@ -16,4 +16,10 @@ class FormacadModel extends Model
       }
     }
   }
+  public function getByReference()
+  {
+    include 'DAO/formacadDAO.php';
+    $dao = new FormacadDAO($this->conn);
+    return $dao->selectByReference($this->prof_id);
+  }
 }

@@ -22,4 +22,13 @@ class MateriaDAO
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
+
+  public function selectByProfId(int $prof_id)
+  {
+    $sql = "SELECT id, prof_id FROM materia JOIN pivot_materias ON pivot_materias.mat_id = materia.id WHERE prof_id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(1, $prof_id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+  }
 }

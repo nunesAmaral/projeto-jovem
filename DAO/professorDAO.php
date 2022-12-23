@@ -33,17 +33,17 @@ class professorDAO
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
-  // public function selectById(int $id)
-  // {
-  //   include_once 'model/projeto_model.php';
+  public function selectById(int $id)
+  {
+    include_once 'model/professores_model.php';
 
-  //   $sql = "SELECT * FROM projeto WHERE id = ?";
-  //   $stmt = $this->conn->prepare($sql);
-  //   $stmt->bindValue(1, $id);
-  //   $stmt->execute();
+    $sql = "SELECT * FROM professor WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(1, $id);
+    $stmt->execute();
 
-  //   return $stmt->fetchObject("ProjetoModel");
-  // }
+    return $stmt->fetchObject("professorModel");
+  }
 
   // public function update(ProjetoModel $model)
   // {

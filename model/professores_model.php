@@ -3,10 +3,9 @@ include_once 'model/model.php';
 class ProfessorModel extends Model
 {
   public $id, $nome, $email, $img_perfil, $descricao;
-  public $formacao;
-  public $materias, $materiasByProfessor;
-  public $totalRegistred, $rows;
-
+  public $formacao, $arrFormacao;
+  public $materias, $materiasByProfessor, $profMaterias;
+  public $totalRegistred, $rows, $row;
 
   public function save()
   {
@@ -20,6 +19,13 @@ class ProfessorModel extends Model
     header('Location: /admin/professores');
   }
 
+  public function selectById($id)
+  {
+    include_once 'DAO/professorDAO.php';
+    $dao = new ProfessorDAO($this->conn);
+    $this->row = $dao->selectById($id);
+  }
+
   public function getMaterias()
   {
     include_once 'model/materia_model.php';
@@ -28,6 +34,14 @@ class ProfessorModel extends Model
     $this->materiasByProfessor = $model->getJoinedRows();
     $this->materias = $model->rows;
   }
+
+  public function selectMateriasByReference($id)
+  {
+    include_once 'model/materia_model.php';
+    $model = new MateriaModel();
+    $this->profMaterias = $model->selectByProfId($id);
+  }
+
   public function saveImgFile()
   {
     $file_name = $this->img_perfil['name'];
@@ -64,6 +78,14 @@ class ProfessorModel extends Model
     $dao = new ProfessorDAO($this->conn);
     $this->rows = $dao->select();
     $this->totalRegistred = count($this->rows);
+  }
+
+  public function getFormacao($id)
+  {
+    include_once 'model/formacad_model.php';
+    $model = new FormacadModel();
+    $model->prof_id = $id;
+    $this->arrFormacao = $model->getByReference();
   }
 
   public function referencesRole()

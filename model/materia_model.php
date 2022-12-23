@@ -17,4 +17,10 @@ class MateriaModel extends Model
     $dao = new MateriaDAO($this->conn);
     return $dao->selectJoinedRows();
   }
+  public function selectByProfId($prof_id)
+  {
+    include_once 'DAO/materiaDAO.php';
+    $dao = new MateriaDAO($this->conn);
+    return $dao->selectByProfId($prof_id);
+  }
 }

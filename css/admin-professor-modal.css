@@ -1,0 +1,44 @@
+.first-row-modal {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.first-row-modal div:last-child {
+  width: 100%;
+}
+
+.prof-formacoes input[type='checkbox'] {
+  display: none;
+}
+
+.prof-formacoes label {
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.prof-formacoes input[type='checkbox']:checked + label::after {
+  content: 'Removido';
+  display: block;
+  color: #bf921d;
+  position: relative;
+}
+
+.prof-formacoes input[type='checkbox'] + label::after {
+  content: 'Remover';
+  display: block;
+  color: #1d71bf;
+  position: relative;
+}
+
+.formacoes-title {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.label-formacoes {
+  font-size: 16px;
+}
+
+.mt-1 {
+  margin-top: 8px;
+}

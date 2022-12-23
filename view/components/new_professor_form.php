@@ -1,4 +1,4 @@
-<dialog class="new-project" id="new-professor">
+<dialog class="new-project  professor-modal" id="new-professor">
   <h2>Adicionar Professor</h2>
   <form enctype="multipart/form-data" action="/admin/professores/save" method="post">
     <label for="nome">Nome:</label>
@@ -28,7 +28,7 @@
           </div>
           <div class="input-controller">
             <label for="materias">Matérias</label>
-            <select name="materias[]" id="js-selector-multiple" style="width: 100%;" multiple>
+            <select name="materias[]" class="js-selector-multiple" style="width: 100%;" multiple>
               <option value="" disabled hidden>Selecione</option>
               <?php foreach ($model->materias as $materia) : ?>
                 <option value="<?= $materia->id ?>"><?= $materia->nome ?></option>
@@ -52,47 +52,3 @@
     </div>
   </form>
 </dialog>
-
-<script>
-  //FUNCIONAMENTO DO MODAL
-  const newProfessorModal = document.querySelector('dialog#new-professor');
-
-  function closeModal() {
-    event.preventDefault();
-    newProfessorModal.close();
-  }
-
-  //FUNCIONAMENTO DA PREVIEW DA IMAGEM
-  $(function() {
-    $('#img-perfil').change(function() {
-      const file = $(this)[0].files[0];
-      const fileReader = new FileReader();
-      fileReader.onloadend = function() {
-        $('#profile-preview').attr('src', fileReader.result);
-      }
-      fileReader.readAsDataURL(file);
-    })
-  })
-
-  //TRATAMENTO DO INPUT DE FORMAÇÕES
-  let item = 0;
-
-  function addInput() {
-    event.preventDefault();
-    item++;
-    const inputsContainer = document.querySelector('.formacao-inputs-container');
-    inputsContainer.insertAdjacentHTML('beforeend',
-      '<div id="campo-' + item + '" class="flex form-group"> <input class="formacao-input" placeholder="Ex: licenciatura em pedagogia" type="text" name="formacoes[]"> <button onclick="removeInput(' + item + ')" id="remove-input-formacao">Remover</button></div>');
-  }
-
-  function removeInput(id) {
-    event.preventDefault();
-    console.log('caiu no bloco da função');
-    document.getElementById('campo-' + id).remove();
-  }
-
-  //FORM TRAITING
-  // $('#js-selector-multiple').select2({
-  //   dropdownParent: $('#new-professor')
-  // });
-</script>

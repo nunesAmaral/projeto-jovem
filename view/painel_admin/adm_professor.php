@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/css/admin-projeto.css">
   <link rel="stylesheet" href="/css/admin-professor.css">
   <link rel="stylesheet" href="/css/admin-projeto-modal.css">
+  <link rel="stylesheet" href="/css/admin-professor-modal.css">
   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -20,8 +21,8 @@
   <script>
     $(document).ready(function() {
       // $('.js-selector-multiple').select2();
-      $('#js-selector-multiple').select2({
-        dropdownParent: $('#new-professor'),
+      $('.js-selector-multiple').select2({
+        dropdownParent: $('#edit-professor'),
         width: 'resolve'
       });
     });
@@ -65,21 +66,20 @@
         <span class="project-title"><?= $row->nome ?></span>
       </div>
       <div class="published-date-container">
-        <?php foreach ($model->materiasByProfessor as $item) {
+        <?php foreach ($model->materiasByProfessor as $item) :
           if ($item->prof_id == $row->id) { ?>
             <span><?= $item->nome ?></span>
         <?php }
-        } ?>
+        endforeach; ?>
       </div>
 
       <div class="action-container">
-        <a onclick="editProjectModal.showModal()" href="/admin/projeto?id=<?= $row->id ?>"><img src="/assets/edit-btn.svg" alt=""></a>
-        <a href="/admin/projeto/delete?id=<?= $row->id ?>" onclick="return confirm('Tem certeza que deseja apagar o projeto?')"><img src="/assets/delete-btn.svg" alt=""></a>
+        <a onclick="editProjectModal.showModal()" href="/admin/professores?id=<?= $row->id ?>"><img src="/assets/edit-btn.svg" alt=""></a>
+        <a href="/admin/professores/delete?id=<?= $row->id ?>" onclick="return confirm('Tem certeza que deseja apagar o projeto?')"><img src="/assets/delete-btn.svg" alt=""></a>
       </div>
     </div>
-  <?php endforeach ?>
-  <script>
-  </script>
+  <?php endforeach; ?>
+
 </body>
 
 </html>

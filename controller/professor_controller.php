@@ -15,9 +15,18 @@ class ProfessorController
 
     include_once 'view/painel_admin/adm_professor.php';
     include_once 'view/components/new_professor_form.php';
-    echo '<pre>';
-    var_dump($model->materiasByProfessor);
-    echo '</pre>';
+    if (isset($_GET['id']) && $_GET['id'] >= 0) {
+      $model->selectById((int) $_GET['id']);
+      $professor = $model->row;
+
+      $model->selectMateriasByReference((int) $_GET['id']);
+      $model->getformacao((int) $_GET['id']);
+
+      include 'view/components/edit_professor_form.php';
+      include_once 'js/script.php';
+    } else {
+      include_once 'js/script.php';
+    }
   }
 
   public static function saveForm()
