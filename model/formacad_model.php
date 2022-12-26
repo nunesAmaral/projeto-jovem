@@ -11,11 +11,30 @@ class FormacadModel extends Model
     if (isset($formacoes)) {
 
       foreach ($formacoes as $item) {
-        $this->formacao = $item;
-        $dao->insert($this);
+        if (strlen($item) > 3) {
+          $this->formacao = $item;
+          $dao->insert($this);
+        }
       }
     }
   }
+
+  public function update(?array $formacoes)
+  {
+    include 'DAO/formacadDAO.php';
+    $dao = new FormacadDAO($this->conn);
+
+    if (isset($formacoes)) {
+      foreach ($formacoes as $item) {
+        if (strlen($item) > 3) {
+          $this->formacao = $item;
+          $dao->update($this);
+        }
+      }
+    }
+  }
+
+
   public function getByReference()
   {
     include 'DAO/formacadDAO.php';

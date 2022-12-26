@@ -1,11 +1,27 @@
 <script>
   //FUNCIONAMENTO DO MODAL
-  const newProfessorModal = document.querySelector('dialog#new-professor');
 
-  function closeModal() {
-    event.preventDefault();
-    newProfessorModal.close();
+
+  const newProfessorModal = document.querySelector('dialog#new-professor');
+  const editProfessorModal = document.getElementById('edit-professor');
+
+  if (newProfessorModal) {
+    function closeModal() {
+      event.preventDefault();
+      newProfessorModal.close();
+    }
   }
+
+  if (editProfessorModal) {
+    editProfessorModal.showModal()
+
+    function closeEditModal() {
+      event.preventDefault();
+      editProfessorModal.close();
+      window.location.href = "/admin/professores"
+    }
+  }
+
 
   //FUNCIONAMENTO DA PREVIEW DA IMAGEM
   $(function() {
@@ -21,37 +37,38 @@
 
   //TRATAMENTO DO INPUT DE FORMAÇÕES
 
-  let item = 0;
-
   const btnEditInput = document.querySelector('#edit-professor .add-formacoes');
-  const inputsEditContainer = document.querySelector('#edit-professor .formacao-inputs-container');
-
-  btnEditInput.addEventListener('click', () => {
-    event.preventDefault();
-    item++;
-
-
-
-    inputsEditContainer.insertAdjacentHTML('beforeend',
-      '<div id="campo-' + item + '" class="flex form-group"> <input class="formacao-input" placeholder="Ex: licenciatura em pedagogia" type="text" name="formacoes[]"> <button onclick="removeInput(' + item + ')" id="remove-input-formacao">Remover</button></div>');
-    console.log('B');
-  })
-
-
-  item = 0;
-
   const btnNewInput = document.querySelector('#new-professor .add-formacoes');
+
+  const inputsEditContainer = document.querySelector('#edit-professor .formacao-inputs-container');
   const inputsNewContainer = document.querySelector('#new-professor .formacao-inputs-container');
 
-  btnNewInput.addEventListener('click', () => {
+  console.log(btnEditInput);
 
-    event.preventDefault();
-    item++;
+  if (btnNewInput) {
 
-    inputsNewContainer.insertAdjacentHTML('beforeend',
-      '<div id="campo-' + item + '" class="flex form-group"> <input class="formacao-input" placeholder="Ex: licenciatura em pedagogia" type="text" name="formacoes[]"> <button onclick="removeInput(' + item + ')" id="remove-input-formacao">Remover</button></div>');
-    console.log('B');
-  })
+    btnNewInput.addEventListener('click', () => {
+      event.preventDefault();
+      let item = 0;
+
+      item++;
+
+      inputsNewContainer.insertAdjacentHTML('beforeend',
+        '<div id="campo-' + item + '" class="flex form-group"> <input class="formacao-input" placeholder="Ex: licenciatura em pedagogia" type="text" name="formacoes[]"> <button onclick="removeInput(' + item + ')" id="remove-input-formacao">Remover</button></div>');
+    })
+  } else if (btnEditInput) {
+
+    btnEditInput.addEventListener('click', () => {
+      event.preventDefault();
+
+      let item = 0;
+      item++;
+
+      inputsEditContainer.insertAdjacentHTML('beforeend',
+        '<div id="campo-' + item + '" class="flex form-group"> <input class="formacao-input" placeholder="Ex: licenciatura em pedagogia" type="text" name="formacoes[]"> <button onclick="removeInput(' + item + ')" id="remove-input-formacao">Remover</button></div>');
+    })
+  }
+
 
   function removeInput(id) {
     event.preventDefault();

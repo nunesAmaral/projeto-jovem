@@ -1,6 +1,6 @@
 <dialog class="new-project edit-professor professor-modal" id="edit-professor">
   <h2>Adicionar Professor</h2>
-  <form enctype="multipart/form-data" action="/admin/professores/save" method="post">
+  <form enctype="multipart/form-data" action="/admin/professores/update?id=<?= $professor->id ?>" method="post">
 
     <div class="flex first-row-modal">
       <div>
@@ -73,15 +73,3 @@
     </div>
   </form>
 </dialog>
-
-
-<script>
-  const editProfessorModal = document.getElementById('edit-professor');
-
-  editProfessorModal.showModal();
-
-  function closeEditModal() {
-    event.preventDefault();
-    editProfessorModal.close();
-  }
-</script>

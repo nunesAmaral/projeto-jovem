@@ -19,6 +19,19 @@ class ProfessorModel extends Model
     header('Location: /admin/professores');
   }
 
+  public function update()
+  {
+    include_once 'DAO/professorDAO.php';
+    $dao = new ProfessorDAO($this->conn);
+    $this->saveImgFile();
+    $dao->update($this);
+    if ($this->img_perfil) $dao->updateImg($img_perfil);
+
+    $this->saveFormacao();
+    $this->referencesRole();
+    header('Location: /admin/professores');
+  }
+
   public function selectById($id)
   {
     include_once 'DAO/professorDAO.php';
@@ -58,9 +71,9 @@ class ProfessorModel extends Model
       $destination = "imgs/professores/$new_file_name.$extension";
       if (move_uploaded_file($this->img_perfil['tmp_name'], $destination)) {
         $this->img_perfil = $destination;
-      } else {
-        echo 'Algo deu errado.';
-      };
+      }
+    } else {
+      $this->img_perfil = null;
     }
   }
 
@@ -93,6 +106,7 @@ class ProfessorModel extends Model
     include_once 'model/pivot_materias_model.php';
     $model = new PivotMateriasModel();
     $model->prof_id = $this->id;
+    $model->delete($this->materias);
     $model->save($this->materias);
   }
 }

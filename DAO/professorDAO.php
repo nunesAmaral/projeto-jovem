@@ -45,20 +45,27 @@ class professorDAO
     return $stmt->fetchObject("professorModel");
   }
 
-  // public function update(ProjetoModel $model)
-  // {
-  //   $sql = "UPDATE projeto SET titulo=?, descricao=?, data_projeto=?, laboratorio=?
-  //           WHERE id=?";
-  //   $stmt = $this->conn->prepare($sql);
+  public function update(ProfessorModel $model)
+  {
+    $sql = "UPDATE professor SET nome=?, email=?, descricao=? WHERE id=?";
+    $stmt = $this->conn->prepare($sql);
 
-  //   $stmt->bindValue(1, $model->titulo);
-  //   $stmt->bindValue(2, $model->descricao);
-  //   $stmt->bindValue(3, $model->data_projeto);
-  //   $stmt->bindValue(4, $model->laboratorio);
-  //   $stmt->bindValue(5, $model->id);
+    $stmt->bindValue(1, $model->nome);
+    $stmt->bindValue(2, $model->email);
+    $stmt->bindValue(3, $model->descricao);
+    $stmt->bindValue(4, $model->id);
 
-  //   $stmt->execute();
-  // }
+    $stmt->execute();
+  }
+
+  public function updateImg(string $img_perfil)
+  {
+    $sql = "UPDATE professor SET img_perfil=? WHERE id=?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(1, $img_perfil);
+
+    $stmt->execute();
+  }
 
   // public function delete(int $id)
   // {

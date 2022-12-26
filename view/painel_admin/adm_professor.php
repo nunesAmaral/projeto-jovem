@@ -21,10 +21,18 @@
   <script>
     $(document).ready(function() {
       // $('.js-selector-multiple').select2();
-      $('.js-selector-multiple').select2({
-        dropdownParent: $('#edit-professor'),
-        width: 'resolve'
-      });
+      const editModal = document.getElementById('edit-professor')
+      if (editModal) {
+        $('.js-selector-multiple').select2({
+          dropdownParent: $('#edit-professor'),
+          width: 'resolve'
+        });
+      } else {
+        $('.js-selector-multiple').select2({
+          dropdownParent: $('#new-professor'),
+          width: 'resolve'
+        });
+      }
     });
   </script>
 </head>

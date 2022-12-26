@@ -18,6 +18,16 @@ class FormacadDAO
     $stmt->execute();
   }
 
+  public function update(FormacadModel $model)
+  {
+    $sql = "UPDATE form_academica SET prof_id=?, formacao=?";
+    $stmt = $this->conn->prepare($sql);
+
+    $stmt->bindValue(1, $model->prof_id);
+    $stmt->bindValue(2, $model->formacao);
+    $stmt->execute();
+  }
+
   public function selectByReference(int $prof_id)
   {
     $sql = "SELECT * FROM form_academica WHERE prof_id = ?";

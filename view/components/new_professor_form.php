@@ -24,10 +24,11 @@
         <div class="flex select-btn-container">
           <div class="btn-formacao-controller">
             <label>Formações</label>
-            <button onclick="addInput()" class="add-formacoes"><img class="plus-sign" src="/assets/plus-sign.svg" alt=""> Adicionar campo</button>
+            <button class="add-formacoes"><img class="plus-sign" src="/assets/plus-sign.svg" alt=""> Adicionar campo</button>
           </div>
           <div class="input-controller">
             <label for="materias">Matérias</label>
+
             <select name="materias[]" class="js-selector-multiple" style="width: 100%;" multiple>
               <option value="" disabled hidden>Selecione</option>
               <?php foreach ($model->materias as $materia) : ?>
@@ -45,7 +46,6 @@
         </div>
       </div>
     </div>
-
     <div class="btn-container flex">
       <button class="btn primary">Cadastrar</button>
       <button class="btn seccondary" onclick="closeModal()">Cancelar</button>

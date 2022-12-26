@@ -42,4 +42,20 @@ class ProfessorController
     $model->materias = $_POST['materias'];
     $model->save();
   }
+
+  public static function updateForm()
+  {
+    include_once 'model/professores_model.php';
+    $model = new ProfessorModel();
+
+    $model->id = (int) $_GET['id'];
+    $model->nome = $_POST['nome'];
+    $model->descricao = $_POST['descricao'];
+    $model->email = $_POST['email'];
+    $model->formacao = $_POST['formacoes'];
+    $model->materias = $_POST['materias'];
+    $model->img_perfil = $_FILES['img-perfil'];
+
+    $model->update();
+  }
 }

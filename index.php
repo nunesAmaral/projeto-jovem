@@ -47,6 +47,10 @@ switch ($url) {
     ProfessorController::saveForm();
     break;
 
+  case '/admin/professores/update':
+    ProfessorController::updateForm();
+    break;
+
 
   case '/':
     include 'view/pages/home.php';
