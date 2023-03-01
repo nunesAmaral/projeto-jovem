@@ -28,6 +28,15 @@ class FormacadDAO
     $stmt->execute();
   }
 
+  public function deleteByReference($prof_id)
+  {
+    $sql = "DELETE FROM form_academica WHERE prof_id=?";
+    $stmt = $this->conn->prepare($sql);
+
+    $stmt->bindValue(1, $prof_id);
+    $stmt->execute();
+  }
+
   public function selectByReference(int $prof_id)
   {
     $sql = "SELECT * FROM form_academica WHERE prof_id = ?";

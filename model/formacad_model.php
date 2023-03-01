@@ -6,7 +6,7 @@ class FormacadModel extends Model
   public $id, $prof_id, $formacao;
   public function save(?array $formacoes)
   {
-    include 'DAO/formacadDAO.php';
+    include_once 'DAO/formacadDAO.php';
     $dao = new FormacadDAO($this->conn);
     if (isset($formacoes)) {
 
@@ -21,7 +21,7 @@ class FormacadModel extends Model
 
   public function update(?array $formacoes)
   {
-    include 'DAO/formacadDAO.php';
+    include_once 'DAO/formacadDAO.php';
     $dao = new FormacadDAO($this->conn);
 
     if (isset($formacoes)) {
@@ -33,11 +33,16 @@ class FormacadModel extends Model
       }
     }
   }
-
+  public function deleteByProfId()
+  {
+    include_once 'DAO/formacadDAO.php';
+    $dao = new FormacadDAO($this->conn);
+    $dao->deleteByReference($this->prof_id);
+  }
 
   public function getByReference()
   {
-    include 'DAO/formacadDAO.php';
+    include_once 'DAO/formacadDAO.php';
     $dao = new FormacadDAO($this->conn);
     return $dao->selectByReference($this->prof_id);
   }

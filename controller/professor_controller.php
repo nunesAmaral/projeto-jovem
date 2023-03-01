@@ -8,6 +8,7 @@ class ProfessorController
       header('Location: /admin/login?login=erro2');
     }
 
+
     include_once 'model/professores_model.php';
     $model = new ProfessorModel();
     $model->getMaterias();
@@ -57,5 +58,12 @@ class ProfessorController
     $model->img_perfil = $_FILES['img-perfil'];
 
     $model->update();
+  }
+  public static function deleteProfessor()
+  {
+    include_once 'model/professores_model.php';
+    $model = new ProfessorModel();
+    $model->id = (int) $_GET['id'];
+    $model->delete();
   }
 }

@@ -54,7 +54,7 @@
       </div>
       <div>
         <div class="postagens-info">
-          <h2>Mussum Ipsum, cacilds vidis litro abertis. Delegadis gente finis</h2>
+          <h2>Lorem ipsum dolor sit, amet consectetur adipisicing.</h2>
           <div class="info-container">
             <span class="data-postagem">08/2017</span>
             <span class="lab-tag">Lab. Ciências da natureza</span>

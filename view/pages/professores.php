@@ -42,44 +42,46 @@
     <div id="containerProfessor">
         <div class="profLeft">
             <h1 class="profTitle">Professores</h1>
-            <?php foreach ($professores as $item) : ?>
-                <div value="<?= $item['id'] ?>" onclick="change(this)" class="profInfo">
-                    <p class="profNome">Prof. <?= ucfirst($item['nomeprofessor']); ?></p>
-                    <p class="profMateria"><?= ucfirst($item['materiaprofessor']); ?></p>
-                    <img src="../assets/setaprofessores.svg">
-                </div>
-            <?php endforeach; ?>
+            <div value="" class="profInfo">
+                <p class="profNome">Prof. José Leocádio Fernandes Silveira ?></p>
+                <p class="profMateria"> Sociologia</p>
+                <img src="../assets/setaprofessores.svg">
+            </div>
+            <div value="" class="profInfo">
+                <p class="profNome">Prof. José Leocádio Fernandes Silveira</p>
+                <p class="profMateria"> Sociologia</p>
+                <img src="../assets/setaprofessores.svg">
+            </div>
+            <div value="" class="profInfo">
+                <p class="profNome">Prof. José Leocádio Fernandes Silveira</p>
+                <p class="profMateria"> Sociologia</p>
+                <img src="../assets/setaprofessores.svg">
+            </div>
+            <div value="" class="profInfo">
+                <p class="profNome">Prof. José Leocádio Fernandes Silveira</p>
+                <p class="profMateria"> Sociologia</p>
+                <img src="../assets/setaprofessores.svg">
+            </div>
         </div>
 
-        <?php foreach ($professores as $professor) :
-            $formacoes = [];
-            $sql = $pdo->query("SELECT * from professorformacao WHERE iduser = {$professor['id']}");
-            if ($sql->rowCount() > 0) {
-                $formacoes = $sql->fetchAll(PDO::FETCH_ASSOC);
-            };
-
-        ?>
-            <div list-id="<?= $professor['id'] ?>" class="profRight hide">
-                <div class="profHeader">
-                    <img class="profImagem" src="../assets/imagemprofessor/<?= isset($professor['img']) ? "../../assets/imagemprofessor/" . $professor['img'] : '../../assets/userdefault.png'  ?>">
-                    <p class="profSubtitulo">Prof. <?= $professor['nomeprofessor']; ?></p>
-                </div>
-                <div class="profFormacao">
-                    <h4 class="formacaoTitulo">Formação:</h4>
-                    <?php foreach ($formacoes as $formacao) : ?>
-                        <p> <?= $formacao['descricao'] . " - " . $formacao['instituicaoformacao'] . " - " . $formacao['anoinicio'] . " à " . $formacao['anofim'] ?></p>
-                    <?php endforeach; ?>
-                </div>
-                <div class="profContato">
-                    <h4 class="contatoTitulo">Contatos:</h4>
-                    <p class="descricaoContato"><?= $professor['contatoprofessor']; ?></p>
-                </div>
-                <div class="profContato">
-                    <h4 class="contatoTitulo">Status:</h4>
-                    <p class="descricaoContato"><?= $professor['status']; ?></p>
-                </div>
+        <div class="profRight hide">
+            <div class="profHeader">
+                <img class="profImagem" src="/assets/mulher-sorrindo.png" ?>">
+                <p class="profSubtitulo">Prof. Rosiane Martinez Silveira. ?></p>
             </div>
-        <?php endforeach; ?>
+            <div class="profFormacao">
+                <h4 class="formacaoTitulo">Formação:</h4>
+                <p>Mestrado em educação - UFSC, 2014</p>
+            </div>
+            <div class="profContato">
+                <h4 class="contatoTitulo">Contatos:</h4>
+                <p class="descricaoContato"> professor@email.com</p>
+            </div>
+            <!-- <div class="profContato">
+                <h4 class="contatoTitulo">Status:</h4>
+                <p class="descricaoContato"></p>
+            </div> -->
+        </div>
     </div>
     <script src="../js/professores.js"></script>
 </body>

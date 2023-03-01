@@ -32,6 +32,14 @@ class ProfessorModel extends Model
     header('Location: /admin/professores');
   }
 
+  public function delete()
+  {
+    include_once 'DAO/professorDAO.php';
+    $dao = new ProfessorDAO($this->conn);
+    $dao->deleteById($this->id);
+    header('Location: /admin/professores');
+  }
+
   public function selectById($id)
   {
     include_once 'DAO/professorDAO.php';
@@ -82,6 +90,7 @@ class ProfessorModel extends Model
     include_once 'model/formacad_model.php';
     $model = new FormacadModel();
     $model->prof_id = $this->id;
+    $model->deleteByProfId();
     $model->save($this->formacao);
   }
 

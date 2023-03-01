@@ -58,6 +58,15 @@ class professorDAO
     $stmt->execute();
   }
 
+  public function deleteById($id)
+  {
+    $sql = "DELETE FROM professor WHERE id=?";
+    $stmt = $this->conn->prepare($sql);
+
+    $stmt->bindValue(1, $id);
+    $stmt->execute();
+  }
+
   public function updateImg(string $img_perfil)
   {
     $sql = "UPDATE professor SET img_perfil=? WHERE id=?";

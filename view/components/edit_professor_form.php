@@ -1,5 +1,5 @@
 <dialog class="new-project edit-professor professor-modal" id="edit-professor">
-  <h2>Adicionar Professor</h2>
+  <h2>Editar Professor</h2>
   <form enctype="multipart/form-data" action="/admin/professores/update?id=<?= $professor->id ?>" method="post">
 
     <div class="flex first-row-modal">
